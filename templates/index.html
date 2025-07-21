@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TaskFlash Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 TaskFlash Dashboard</h1>
+    <form id="task-form">
+      <input type="text" id="task-name" placeholder="Task Name" required />
+      <input type="number" id="task-duration" placeholder="Duration (min)" required />
+      <select id="task-urgency" required>
+        <option value="">Urgency</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <input type="datetime-local" id="dueDate" required />
+      <button type="submit">Add Task</button>
+    </form>
+
+    <div class="availability-checker">
+      <h2>⏳ I am free for...</h2>
+      <input type="number" id="available-time" placeholder="Time in minutes" />
+      <button onclick="suggestTasks()">Suggest Tasks</button>
+    </div>
+
+    <div class="task-list">
+      <h2>📝 Suggested Tasks</h2>
+      <ul id="task-suggestions"></ul>
+    </div>
+
+    <div class="task-list">
+      <h2>✅ Completed Tasks</h2>
+      <ul id="completed-tasks"></ul>
+    </div>
+
+    <form action="/logout" method="POST">
+      <button type="submit">🔓 Logout</button>
+    </form>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

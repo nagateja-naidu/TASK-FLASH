@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register - TaskFlash</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Register for TaskFlash</h1>
+    <form method="POST" action="/register">
+      <input type="text" name="username" placeholder="👤 Username" required />
+      <input type="password" name="password" placeholder="🔒 Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a>
+Login here</a></p>
+  </div>
+</body>
+</html>
